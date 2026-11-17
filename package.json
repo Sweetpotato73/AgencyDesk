@@ -1,0 +1,33 @@
+{
+  "name": "client-portal",
+  "private": true,
+  "version": "1.0.0",
+  "description": "White-label client portal & project management hub for agencies",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "infra:up": "node scripts/infra.mjs up",
+    "infra:down": "node scripts/infra.mjs down",
+    "db:migrate": "npm run db:migrate -w server",
+    "db:seed": "npm run db:seed -w server",
+    "dev": "node scripts/dev.mjs",
+    "build": "npm run build -w server && npm run build -w client",
+    "start": "npm run start -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
+    "test:e2e": "npm run test:e2e -w server"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "allowScripts": {
+    "@prisma/client@6.19.3": true,
+    "@prisma/engines@6.19.3": true,
+    "esbuild@0.28.2": true,
+    "prisma@6.19.3": true
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.0"
+  }
+}
